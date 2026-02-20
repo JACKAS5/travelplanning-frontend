@@ -1,4 +1,4 @@
-# TravelPlanning Frontend
+# TravelPlanning Frontend (View Demo)[https://jackas5.github.io/travelplanning-frontend/]
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
 [![React Version](https://img.shields.io/badge/React-18.2-blue.svg)](https://reactjs.org/)  
