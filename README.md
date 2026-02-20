@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# TravelPlanning Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
+[![React Version](https://img.shields.io/badge/React-18.2-blue.svg)](https://reactjs.org/)  
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.3.2-teal.svg)](https://tailwindcss.com/)  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+1. [Project Overview](#project-overview)  
+2. [Features](#features)  
+3. [Tech Stack](#tech-stack)  
+4. [Installation](#installation)  
+5. [Usage](#usage)  
+6. [Folder Structure](#folder-structure)  
+7. [Contributing](#contributing)  
+8. [License](#license)  
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Overview
+**TravelPlanning Frontend** is a modern, responsive React application designed to provide users with an interactive experience for exploring travel destinations. The application showcases featured destinations with rich visuals, info badges, and hero carousels, allowing users to browse and plan trips effectively.  
 
-## Expanding the ESLint configuration
+While currently a standalone frontend, the project is structured to integrate easily with backend APIs in the future for dynamic data fetching.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
+- Fully responsive design for desktop and mobile  
+- Browse destinations with detailed information  
+- Hero carousel for featured destinations  
+- Info badges highlighting key destination data  
+- Search and filtering functionality  
+- Modular and reusable React components  
+- TailwindCSS styling for modern, clean UI  
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Tech Stack
+- **Frontend:** React 18, React Router  
+- **Styling:** TailwindCSS 3  
+- **Components:** Functional React components with hooks (`useState`, `useEffect`)  
+- **Build Tool:** Vite / Create React App (depending on setup)  
+- **Version Control:** Git, ready for GitHub hosting  
+
+---
+
+## Installation
+
+### Clone the Repository
+```bash
+git clone https://github.com/<your-username>/travelplanning-frontend.git
+cd travelplanning-frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Install Dependencies
+```bash
+npm install
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Run Locally
+```bash
+npm start
 ```
