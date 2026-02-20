@@ -1,9 +1,5 @@
-import {
-  createContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from "react";
+import { createContext, useState, useEffect } from "react";
+import type { ReactNode } from "react"; 
 
 export interface User {
   name: string;
@@ -32,7 +28,6 @@ export const AuthProvider = ({ children }: Props) => {
   // Load from localStorage on app start
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -55,9 +50,5 @@ export const AuthProvider = ({ children }: Props) => {
     isLoggedIn: !!user,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

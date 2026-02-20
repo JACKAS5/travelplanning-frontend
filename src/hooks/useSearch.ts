@@ -1,20 +1,28 @@
-// src/hooks/useSearch.ts
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export function useSearch<T>(
   items: T[],
   query: string,
-  keys: (keyof T)[]
+  keys: (keyof T)[],
+  debounceMs = 300
 ) {
+  const [debouncedQuery, setDebouncedQuery] = useState(query);
   const [loading, setLoading] = useState(false);
 
-  // Debounce query to avoid filtering on every keystroke
-  const [debouncedQuery, setDebouncedQuery] = useState(query);
-
   useEffect(() => {
-    const handler = setTimeout(() => setDebouncedQuery(query), 300);
-    return () => clearTimeout(handler);
-  }, [query]);
+    // Defer setLoading asynchronously to avoid synchronous setState
+    const startLoading = setTimeout(() => setLoading(true), 0);
+
+    const handler = setTimeout(() => {
+      setDebouncedQuery(query);
+      setLoading(false); // debounce complete
+    }, debounceMs);
+
+    return () => {
+      clearTimeout(handler);
+      clearTimeout(startLoading);
+    };
+  }, [query, debounceMs]);
 
   const filteredItems = useMemo(() => {
     if (!debouncedQuery) return items;
@@ -24,7 +32,7 @@ export function useSearch<T>(
     return items.filter((item) =>
       keys.some((key) => {
         const value = item[key];
-        if (!value) return false;
+        if (value === null || value === undefined) return false;
         return String(value).toLowerCase().includes(lowerQuery);
       })
     );
