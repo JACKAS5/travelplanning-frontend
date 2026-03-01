@@ -25,6 +25,11 @@ While currently a standalone frontend, the project is structured to integrate ea
 
 ---
 
+## Screenshot
+---
+![Shoply Desktop Preview](./public/assets/travelplanning_screenshot.png)
+---
+
 ## Features
 - Fully responsive design for desktop and mobile  
 - Browse destinations with detailed information  
